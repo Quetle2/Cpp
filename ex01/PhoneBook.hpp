@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:37:22 by miandrad          #+#    #+#             */
-/*   Updated: 2023/12/05 17:44:29 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/22 14:43:00 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ class PhoneBook{
 		Contact _contacts[8];
 
 	public:
-		Phonebook();
+		PhoneBook();
 		~PhoneBook();
 };
+
+#endif
