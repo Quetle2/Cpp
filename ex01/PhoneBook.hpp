@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:37:22 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/22 14:43:00 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/24 17:07:52 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #	define PHONEBOOK_HPP
 
 #	include "Contact.hpp"
+#	include <limits>
 
 class PhoneBook{
 	private:
@@ -22,6 +23,8 @@ class PhoneBook{
 	public:
 		PhoneBook();
 		~PhoneBook();
+		void	addContato();
+		// void	searchContato();
 };
 
 #endif
