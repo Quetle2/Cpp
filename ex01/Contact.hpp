@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:44:32 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/24 16:21:25 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/26 13:43:14 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,16 @@ class Contact{
 		std::string _phoneNumber;
 		std::string _darkestSecret;
 		int			index;
-		bool		exist;
 	
 	public:
 		Contact();
 		~Contact();
 		void	addContatoContinua();
-		void	setExist(bool exist);
-		bool	checkExists();
+		void	setIndex(int i);
+		void	show(int i);
+		std::string	_printLen(std::string str);
 		std::string	getInput();
+		
 		
 };
 

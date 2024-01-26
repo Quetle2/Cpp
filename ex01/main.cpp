@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:02:46 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/24 18:09:00 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:29:47 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(void)
 	{
 		if (input.compare("ADD") == 0)
 			Book.addContato();
+		if (input.compare("SEARCH") == 0)
+			Book.viewContacts();
 		std::cin >> input;
 	}
 }
