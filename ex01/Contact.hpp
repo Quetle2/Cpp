@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:44:32 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/26 13:43:14 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/27 22:19:51 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ class Contact{
 		~Contact();
 		void	addContatoContinua();
 		void	setIndex(int i);
-		void	show(int i);
+		void	showList(int index);
+		void	showContact(int index);
 		std::string	_printLen(std::string str);
 		std::string	getInput();
-		
-		
 };
 
 #endif
