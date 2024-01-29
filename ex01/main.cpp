@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:02:46 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/28 23:43:45 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:09:23 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(void)
 	std::cin >> input;
 	while (input.compare("EXIT"))
 	{
-		if (input.compare("ADD") == 0)
+		if (input.compare("ADD") == 0 && !input.empty())
 			Book.addContato();
-		else if (input.compare("SEARCH") == 0)
+		else if (input.compare("SEARCH") == 0 && !input.empty())
 			Book.viewContacts();
 		else
 			std::cout << "Comando n encontrado" << std::endl;

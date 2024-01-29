@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:02:18 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/27 22:19:41 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/29 10:29:08 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ std::string	Contact::getInput()
 			valid = true;
 		else{
 			std::cin.clear();
+			std::cin.ignore();
 			std::cout << "Na serve isso ai, tenta denovo." << std::endl;
 		}
 	}

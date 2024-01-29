@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:24:26 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/27 22:31:40 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/29 10:44:21 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int		PhoneBook::getNumber()
 		if (std::cin.good() && (input > 0 && input <= 8))
 			valid = true;
 		else{
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 			std::cout << "Na sabes ver?! Manda outro." << std::endl;
 		}
 	}
