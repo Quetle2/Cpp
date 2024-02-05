@@ -6,56 +6,68 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:24:26 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/01 15:53:43 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/05 18:56:57 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <ctime>
+#include <iostream>
+#include <iomanip>
 
-t::Account(int initial_deposit){
+int Account::_nbAccounts = 0;
+int Account::_totalAmount= 0;
+int Account::_totalNbDeposits= 0;
+int Account::_totalNbWithdrawals = 0;
+
+Account::Account(int initial_deposit){
+	_nbAccounts++;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	_accountIndex = _nbAccounts - 1;
+	_amount = initial_deposit;
+}
+
+Account::~Account(void){
+
+}
+
+int	Account::getNbAccounts(void){
+	return _nbAccounts;
+}
+
+int	Account::getTotalAmount(void){
+	return _totalAmount;
+}
+
+int	Account::getNbDeposits(void){
+	return _totalNbDeposits;
+}
+
+int	Account::getNbWithdrawals(void){
+	return _totalNbWithdrawals;
+}
+
+void	Account::displayAccountsInfos(void){
 	
 }
 
-t::~Account(void){
-
-}
-
-static int	t::getNbAccounts(void){
+void	Account::makeDeposit(int deposit){
 	
 }
 
-static int	t::getTotalAmount(void){
+bool	Account::makeWithdrawal(int withdrawal){
 	
 }
 
-static int	t::getNbDeposits(void){
+int		Account::checkAmount(void)const{
 	
 }
 
-static int	t::getNbWithdrawals(void){
+void	Account::displayStatus(void)const{
 	
 }
 
-static void	t::displayAccountsInfos(void){
-	
-}
-
-void	t::makeDeposit(int deposit){
-	
-}
-
-bool	t::makeWithdrawal(int withdrawal){
-	
-}
-
-int		t::checkAmount(void)const{
-	
-}
-
-void	t::displayStatus(void)const{
-	
-}
-
-static void	t::_displayTimestamp(void){
+void	Account::_displayTimestamp(void){
 	
 }

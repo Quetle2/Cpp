@@ -1,11 +1,10 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes -fsanitize=address
 RM = rm -rf
-NAME = PhoneBook
+NAME = Account
 
-SRCS = Contact.cpp\
-	   PhoneBook.cpp\
-	   main.cpp
+SRCS = Account.cpp\
+	   tests.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
