@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 17:44:32 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/27 22:19:51 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:55:44 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ class Contact{
 		void	showContact(int index);
 		std::string	_printLen(std::string str);
 		std::string	getInput();
+		int			getNumber();
 };
 
 #endif

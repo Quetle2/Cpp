@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:02:18 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/29 10:29:08 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/01/31 15:09:32 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,31 @@ Contact::~Contact()
 {
 }
 
+int		Contact::getNumber()
+{
+	int		input = 0;
+	bool	valid = false;
+	while (valid == false){
+		std::cout << ">" << std::flush;
+		std::cin >> input;
+		if (std::cin.good())
+			valid = true;
+		else{
+			std::cin.clear();
+			std::cin.ignore();
+			std::cout << "Na sabes ver?! Manda outro." << std::endl;
+		}
+	}
+	return (input);
+}
+
 std::string	Contact::getInput()
 {
 	std::string input = "";
 	bool		valid = false;
 	while (valid == false){
 		std::cout << ">" << std::flush;
-		std::getline(std::cin, input);
+		std::cin >> input;
 		if (std::cin.good() && !input.empty())
 			valid = true;
 		else{
@@ -55,7 +73,7 @@ void	Contact::addContatoContinua()
 	std::cout << "E um apelido fofinho!!" << std::endl;
 	this->_nickName = this->getInput();
 	std::cout << "Qual era o numero dele mesmo?" << std::endl;
-	this->_phoneNumber = this->getInput();
+	this->_phoneNumber = this->getNumber();
 	std::cout << "Agora um segredo para chantajear o homie" << std::endl;
 	this->_darkestSecret = this->getInput();
 }
