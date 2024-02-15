@@ -4,7 +4,7 @@ RM = rm -rf
 NAME = megaphone
 
 SRCS = megaphone.cpp\
-	   main.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
