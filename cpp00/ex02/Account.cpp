@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:24:26 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/08 14:59:32 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:31:30 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ bool	Account::makeWithdrawal(int withdrawal){
 	}
 	this->_nbWithdrawals++;
 	_totalNbWithdrawals++;
-	_totalAmount += withdrawal;
+	_totalAmount -= withdrawal;
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:" << withdrawal << ";amount:" << _amount - withdrawal << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
 	_amount -= withdrawal;
 	return true;

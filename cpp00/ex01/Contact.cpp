@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:02:18 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/31 15:09:32 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/16 17:49:22 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,14 @@ Contact::~Contact()
 {
 }
 
-int		Contact::getNumber()
-{
-	int		input = 0;
-	bool	valid = false;
-	while (valid == false){
-		std::cout << ">" << std::flush;
-		std::cin >> input;
-		if (std::cin.good())
-			valid = true;
-		else{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << "Na sabes ver?! Manda outro." << std::endl;
-		}
-	}
-	return (input);
-}
-
 std::string	Contact::getInput()
 {
 	std::string input = "";
-	bool		valid = false;
-	while (valid == false){
+	while (1){
 		std::cout << ">" << std::flush;
 		std::cin >> input;
 		if (std::cin.good() && !input.empty())
-			valid = true;
+			break;
 		else{
 			std::cin.clear();
 			std::cin.ignore();
@@ -65,6 +46,8 @@ std::string	Contact::_printLen(std::string str)
 
 void	Contact::addContatoContinua()
 {
+	std::string input;
+
 	std::cin.ignore();
 	std::cout << "Mete ai O Nome do bacano" << std::endl;
 	this->_firstName = this->getInput();
@@ -73,7 +56,20 @@ void	Contact::addContatoContinua()
 	std::cout << "E um apelido fofinho!!" << std::endl;
 	this->_nickName = this->getInput();
 	std::cout << "Qual era o numero dele mesmo?" << std::endl;
-	this->_phoneNumber = this->getNumber();
+	while (1)
+	{
+		std::cout << "Phone number 📞: " << std::endl;
+		std::cout << std::endl;
+		std::cin >> input;
+		if (!input.empty() && input.find_first_not_of("0123456789") != std::string::npos) 
+		{
+			std::cin.clear();
+			std::cout << "Phone number must be fully composed by numbers" << std::endl;
+			continue;
+		}
+		this->_phoneNumber = input;
+		break;
+	}
 	std::cout << "Agora um segredo para chantajear o homie" << std::endl;
 	this->_darkestSecret = this->getInput();
 }
