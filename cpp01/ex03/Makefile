@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes -fsanitize=address
 RM = rm -rf
-NAME = War
+NAME = Violence
 
 SRCS = main.cpp\
 	   HumanA.cpp\

@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 11:02:18 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/16 17:49:22 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/17 14:26:28 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ std::string	Contact::getInput()
 	std::string input = "";
 	while (1){
 		std::cout << ">" << std::flush;
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (std::cin.good() && !input.empty())
 			break;
 		else{
@@ -48,29 +48,29 @@ void	Contact::addContatoContinua()
 {
 	std::string input;
 
-	std::cin.ignore();
-	std::cout << "Mete ai O Nome do bacano" << std::endl;
+	std::cin.clear();
+	std::cout << "Firstname" << std::endl;
 	this->_firstName = this->getInput();
-	std::cout << "E o ultimo nome?!" << std::endl;
+	std::cout << "Lastname" << std::endl;
 	this->_lastName = this->getInput();
-	std::cout << "E um apelido fofinho!!" << std::endl;
+	std::cout << "Nickname" << std::endl;
 	this->_nickName = this->getInput();
-	std::cout << "Qual era o numero dele mesmo?" << std::endl;
+	std::cout << "Phone Number 📞" << std::endl;
 	while (1)
 	{
-		std::cout << "Phone number 📞: " << std::endl;
-		std::cout << std::endl;
-		std::cin >> input;
-		if (!input.empty() && input.find_first_not_of("0123456789") != std::string::npos) 
+		std::getline(std::cin, input);
+		// std::cin >> input;
+		if (!std::cin.good() || input.empty() || input.find_first_not_of("0123456789") != std::string::npos) 
 		{
 			std::cin.clear();
 			std::cout << "Phone number must be fully composed by numbers" << std::endl;
 			continue;
 		}
 		this->_phoneNumber = input;
+		std::cin.clear();
 		break;
 	}
-	std::cout << "Agora um segredo para chantajear o homie" << std::endl;
+	std::cout << "Darkest secret 💀" << std::endl;
 	this->_darkestSecret = this->getInput();
 }
 

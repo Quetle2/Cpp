@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:24:26 by miandrad          #+#    #+#             */
-/*   Updated: 2024/01/29 10:44:21 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/17 14:29:40 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		PhoneBook::getNumber()
 	bool	valid = false;
 	while (valid == false){
 		std::cout << std::endl;
-		std::cout << "Numero por favor:  " << std::flush;
+		std::cout << "Index number:  " << std::flush;
 		std::cin >> input;
 		if (std::cin.good() && (input > 0 && input <= 8))
 			valid = true;
@@ -34,9 +34,11 @@ int		PhoneBook::getNumber()
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
-			std::cout << "Na sabes ver?! Manda outro." << std::endl;
+			std::cout << "Must be a number between 1 and 8" << std::endl;
 		}
 	}
+	std::cin.clear();
+	std::cin.ignore();
 	return (input);
 }
 

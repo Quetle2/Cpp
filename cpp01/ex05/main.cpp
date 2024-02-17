@@ -5,27 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 01:44:35 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/17 17:34:47 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/17 18:12:18 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/17 18:38:59 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Harl.hpp"
+#include <iostream>
+
+bool isInputValid(const std::string& input)
+{
+	if (input != "DEBUG" && input != "INFO"
+	&& input != "WARNING" && input != "ERROR")
+	{
+		std::cout << "Please insert a valid level for Harl" << std::endl;
+		return false;
+	}
+	return true;
+}
 
 int main(void)
 {
-		Weapon club1 = Weapon("crude spiked club");
-		HumanA bob("Bob", club1);
-		bob.attack();
-		club1.setType("some other type of club");
-		bob.attack();
-		
-		Weapon club2 = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club2);
-		jim.attack();
-		club2.setType("some other type of club");
-		jim.attack();
+	Harl harl;
+	std::string input;
+
+	while (1)
+	{
+		std::cout << "Enter a level for Harl: ";
+		getline(std::cin, input);
+		if (std::cin.eof() == true)
+		{
+			std::cout << std::endl;
+			break;
+		}
+		if (input.empty() || !isInputValid(input))
+			continue;
+		harl.complain(input);
+	}
 }

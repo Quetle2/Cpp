@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   notSed.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 01:59:20 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/17 18:13:12 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/17 18:12:29 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/17 18:53:25 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef notSed_HPP
-#define notSed_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
-#include <iostream>
-#include <fstream>
+# include <string>
 
-class notSed{
-	private:
-		std::string _inFile;
-		std::string _outFile;
-
+class Harl {
 	public:
-		notSed( std::string filename );
-		~notSed();
+		Harl(void);
+		~Harl(void);
+		void complain(std::string level);
 
-		void            replace( std::string s1, std::string s2);
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
 };
+
+typedef void (Harl::* t_func) (void);
 
 #endif
