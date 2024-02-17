@@ -1,12 +1,10 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes -fsanitize=address
 RM = rm -rf
-NAME = War
+NAME = notSed
 
 SRCS = main.cpp\
-	   HumanA.cpp\
-	   HumanB.cpp\
-	   Weapon.cpp
+	   notSed.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
