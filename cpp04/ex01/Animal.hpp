@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:13:50 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 13:52:57 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 04:08:59 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/18 21:31:26 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
-    std::cout << this->_type << " constructor called" << std::endl;
-}
+# include <iostream>
+# include "Brain.hpp"
 
-WrongCat::~WrongCat( void ) {
-    std::cout << this->_type << " destructor called" << std::endl;
-}
+class Animal{
+	protected:
+		std::string _type;
 
-void    WrongCat::makeSound( void ) const
-{
-    std::cout << "Woof!" << std::endl;
-}
+	public:
+		Animal( void );
+		Animal( std::string type );
+		virtual ~Animal( void );
+
+		Animal( const Animal& src );
+		Animal& operator=( const Animal& rhs );
+
+		virtual void    makeSound( void ) const;
+		std::string     getType( void ) const; 
+};
+
+#endif

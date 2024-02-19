@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:13:50 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 13:52:57 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 04:10:42 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/18 21:37:22 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
-    std::cout << this->_type << " constructor called" << std::endl;
-}
+#include "Animal.hpp"
 
-WrongCat::~WrongCat( void ) {
-    std::cout << this->_type << " destructor called" << std::endl;
-}
+class Dog : public Animal {
+	private:
+		Brain   *_brain;
 
-void    WrongCat::makeSound( void ) const
-{
-    std::cout << "Woof!" << std::endl;
-}
+	public:
+		Dog( void );
+		~Dog( void );
+
+		Dog( const Dog& src );
+		Dog& operator=( const Dog& src );
+
+		void   makeSound( void ) const;
+};
+
+#endif

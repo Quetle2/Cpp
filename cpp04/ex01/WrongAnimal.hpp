@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:13:50 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 13:52:57 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 04:11:27 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/18 12:16:05 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
-    std::cout << this->_type << " constructor called" << std::endl;
-}
+# include <iostream>
 
-WrongCat::~WrongCat( void ) {
-    std::cout << this->_type << " destructor called" << std::endl;
-}
+class WrongAnimal {
+	protected:
+		std::string _type;
 
-void    WrongCat::makeSound( void ) const
-{
-    std::cout << "Woof!" << std::endl;
-}
+	public:
+		WrongAnimal( void );
+		WrongAnimal( std::string type );
+		~WrongAnimal( void );
+
+		WrongAnimal( const WrongAnimal& src );
+		WrongAnimal& operator=( const WrongAnimal& rhs );
+
+		void            makeSound( void ) const;
+		std::string     getType( void ) const; 
+};
+
+#endif

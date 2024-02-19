@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:13:50 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 13:52:57 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 19:38:02 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/18 21:28:38 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
-    std::cout << this->_type << " constructor called" << std::endl;
-}
+# include <iostream>
 
-WrongCat::~WrongCat( void ) {
-    std::cout << this->_type << " destructor called" << std::endl;
-}
+class Brain {
+	private:
+		std::string _ideas[100];
 
-void    WrongCat::makeSound( void ) const
-{
-    std::cout << "Woof!" << std::endl;
-}
+	public:
+		Brain( void );
+		~Brain( void );
+		Brain( const Brain& src );
+		Brain& operator=( const Brain& rhs );
+};
+ 
+#endif
