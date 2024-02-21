@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 01:27:11 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/20 02:04:20 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:43:21 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,22 +33,27 @@ const int	Fixed::_frac = 8;
 
 Fixed::Fixed(void): _value(0)
 {
+	std::cout << "Fixed object created with default constructor" << std::endl; 
 }
 
 Fixed::Fixed(const int value): _value(value * ft_pow(2, this->_frac))
 {  
+	std::cout << "Fixed object created with int constructor" << std::endl; 
 } 
 
 Fixed::Fixed(const float value): _value(value * ft_pow(2, this->_frac))
 {  
+	std::cout << "Fixed object created with float constructor" << std::endl; 
 } 
 
 Fixed::~Fixed(void)
 {
+	std::cout << "Fixed object destroyed" << std::endl;
 }
 
-Fixed::Fixed(Fixed const &copy)
+Fixed::Fixed(Fixed const & copy)
 {
+	std::cout << "Fixed object copied" << std::endl;
 	*this = copy;
 }
 

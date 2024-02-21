@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.hpp                                          :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 19:38:02 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 18:43:55 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 04:13:47 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/21 03:51:48 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-# include <iostream>
+#include "WrongAnimal.hpp"
 
-class Brain
+class WrongCat: public WrongAnimal
 {
 	private:
-		std::string	_ideas[100];
+		std::string	_type;
 	public:
 		/* Constructors & Destructors */
-		Brain(void);
-		Brain(Brain const &copy);
-		~Brain(void);
+		WrongCat(void);
+		WrongCat(std::string const &type);
+		WrongCat(WrongCat const &copy);
+		~WrongCat(void);
 
 		/* Basic Operators */
-		Brain	const &operator=(Brain const &copy);
+		WrongCat const	&operator=(WrongCat const &copy);
 
 		/* Getters & Setters */
-		std::string const	&getIdea(int const &index) const;
-		void				setIdea(std::string const &idea, int const &index);
+		std::string const	&getType(void) const;
+		void				setType(std::string const &type);
+
+		/* Main Member Functions */
+		void	makeSound(void) const;
 };
- 
+
 #endif

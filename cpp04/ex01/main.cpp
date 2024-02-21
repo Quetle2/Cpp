@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:13:57 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:43:19 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:23:48 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,71 +14,38 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-#define N_ANIMALS 10
+#define NBR_ANIMALS 4
 
 int main(void)
 {
-	{
-		const Animal *lotsOfAnimals[N_ANIMALS];
+	const Animal* Bisteca = new Dog();
+	std::cout << std::endl;
 
-		for (int i = 0; i < N_ANIMALS; i++)
-		{
-			if (i < N_ANIMALS / 2)
-				lotsOfAnimals[i] = new Dog();
-			else
-				lotsOfAnimals[i] = new Cat();
-		}
-		std::cout << "-------------------------------------\n";
-		std::cout << lotsOfAnimals[0]->getType() << std::endl;
-		std::cout << lotsOfAnimals[5]->getType() << std::endl;
-		Brain *brain;
-		brain = &lotsOfAnimals[0]->getBrain();
-		brain->setIdea("I want sarshisitas!", 0);
-		brain->setIdea("Let's play ball!!", 1);
-		brain->setIdea("Feed me human!", 2);
-		std::cout << lotsOfAnimals[0]->getBrain().getIdea(0) << std::endl;
-		std::cout << lotsOfAnimals[0]->getBrain().getIdea(1) << std::endl;
-		std::cout << "-------------------------------------\n";
-		for (int i = 0; i < N_ANIMALS; i++)
-			delete lotsOfAnimals[i];
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Dog class using copy constructor:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog(*dogA);
+	const Animal* Junim = new Cat();
+	std::cout << std::endl;
 
-		delete dogA;
-		delete dogB;
-	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Dog class using assignment operator overload:\n" << std::endl;
-		Dog *dogA = new Dog;
-		Dog *dogB = new Dog;
+	std::cout << "------------------- ZOO -------------------" << std::endl;
+	const Animal* zoo[NBR_ANIMALS];
 
-		*dogA = *dogB;
-		delete dogA;
-		delete dogB;
+	std::cout << "------------------- DOGS -------------------" << std::endl;
+	for (size_t i = 0; i < 2; i += 1) {
+		zoo[i] = new Dog();
+		std::cout << std::endl;
 	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using copy constructor:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat(*catA);
 
-		delete catA;
-		delete catB;
+	std::cout << "------------------- CATS -------------------" << std::endl;
+	for (size_t i = 2; i < 4; i += 1) {
+		zoo[i] = new Cat();
+		std::cout << std::endl;
 	}
-	std::cout << "-------------------------------------\n";
-	{
-		std::cout << "Check deep copy of Cat class using assignment operator overload:\n" << std::endl;
-		Cat *catA = new Cat;
-		Cat *catB = new Cat;
 
-		*catA = *catB;
-		delete catA;
-		delete catB;
+	std::cout << "---------------- DELETE ZOO ---------------" << std::endl;
+	for (size_t i = 0; i < NBR_ANIMALS; i += 1) {
+		delete zoo[i];
 	}
-	return (0);
+	std::cout << "--------------- ZOO DELETED ---------------" << std::endl;
+	std::cout << std::endl;
+
+	delete Bisteca;
+	delete Junim;
 }

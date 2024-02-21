@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 01:32:09 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 01:41:53 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:20:13 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		this->_hp -= amount;
 	}
 	else
-		std::cout << "STOP! ClapTrap " << this->_name << " is already dead :(" << std::endl;
+		std::cout << "STOP! ClapTrap " << this->_name << " is already dead 😔" << std::endl;
 	if (this->_hp < 0)
 		this->_hp = 0;
 

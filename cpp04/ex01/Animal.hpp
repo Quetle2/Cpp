@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:08:59 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:44:09 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:13:55 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ class Animal
 		/* Getters & Setters */
 		std::string const	&getType(void) const;
 		void				setType(std::string const &type);
-		virtual Brain 		&getBrain(void) const = 0;
 
 		/* Main member functions */
 		virtual void	makeSound(void) const;

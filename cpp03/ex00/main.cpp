@@ -6,14 +6,15 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 01:33:42 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 01:45:42 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 14:22:37 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-void	alice_rundown(void)
+int	main(void)
 {
+	std::cout << std::endl << std::endl << "Performing Alice's rundown..." << std::endl << std::endl;
 	ClapTrap alice("Alice");
 
 	alice.attack("Bob");
@@ -28,10 +29,7 @@ void	alice_rundown(void)
 	alice.attack("Kevin");
 	alice.attack("Laura");
 	alice.attack("Mike");
-}
-
-void	bob_rundown(void)
-{
+	std::cout << std::endl << std::endl << "Performing Bob's rundown..." << std::endl << std::endl;
 	ClapTrap	bob("Bob");
 
 	while (bob.get_hp())
@@ -40,12 +38,4 @@ void	bob_rundown(void)
 		bob.beRepaired(2);
 	}
 	bob.takeDamage(1);
-}
-
-int	main(void)
-{
-	std::cout << std::endl << std::endl << "Performing Alice's rundown..." << std::endl << std::endl;
-	alice_rundown();
-	std::cout << std::endl << std::endl << "Performing Bob's rundown..." << std::endl << std::endl;
-	bob_rundown();
 }

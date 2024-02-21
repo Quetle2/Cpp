@@ -6,13 +6,13 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:10:22 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 18:18:57 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 21:06:47 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void): _type("undefined")
+Cat::Cat(void): _type("Cat")
 {
 	std::cout << "Cat " << this->_type << " created with default constructor." << std::endl;
 }

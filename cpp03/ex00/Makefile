@@ -1,16 +1,17 @@
-CPP = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes -fsanitize=address
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes -fsanitize=address
 RM = rm -rf
 NAME = ClapTrap
 
-SRCS = main.cpp
+SRCS = main.cpp\
+	   ClapTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 01:27:08 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/19 22:43:20 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/20 11:35:22 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Fixed{
 	public:
 		Fixed();
 		Fixed( const Fixed &src );
-		Fixed& operator=( const Fixed &rhs );
+		Fixed& operator=( const Fixed &src );
 		~Fixed();
 
 		int     getRawBits( void ) const;
