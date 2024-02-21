@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:13:47 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 12:25:23 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:51:48 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,26 @@
 
 #include "WrongAnimal.hpp"
 
-class WrongCat : public WrongAnimal {
+class WrongCat: public WrongAnimal
+{
 	private:
-
+		std::string	_type;
 	public:
-		WrongCat( void );
-		~WrongCat( void );
+		/* Constructors & Destructors */
+		WrongCat(void);
+		WrongCat(std::string const &type);
+		WrongCat(WrongCat const &copy);
+		~WrongCat(void);
 
-		void   makeSound( void ) const;
+		/* Basic Operators */
+		WrongCat const	&operator=(WrongCat const &copy);
+
+		/* Getters & Setters */
+		std::string const	&getType(void) const;
+		void				setType(std::string const &type);
+
+		/* Main Member Functions */
+		void	makeSound(void) const;
 };
 
 #endif

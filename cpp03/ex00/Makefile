@@ -1,15 +1,9 @@
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -I./includes -fsanitize=address
 RM = rm -rf
-NAME = Animal
+NAME = ClapTrap
 
-SRCS = main.cpp\
-	   Animal.cpp\
-	   Dog.cpp\
-	   Cat.cpp\
-	   WrongAnimal.cpp\
-	   WrongCat.cpp\
-	   Brain.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -25,3 +19,6 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+run: all clean
+	./$(NAME)

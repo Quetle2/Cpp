@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:11:27 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:51:33 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 04:08:59 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/21 03:35:37 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
-class WrongAnimal
+class Animal
 {
 	protected:
+		Animal(void);
+		Animal(std::string const &type);
+		Animal(Animal const &copy);
 		std::string	_type;
 	public:
 		/* Constructors & Destructors */
-		WrongAnimal(void);
-		WrongAnimal(std::string const &type);
-		WrongAnimal(WrongAnimal const &copy);
-		virtual ~WrongAnimal(void);
+		virtual ~Animal(void);
 
 		/* Basic Operators */
-		WrongAnimal const	&operator=(WrongAnimal const &copy);
+		Animal const	&operator=(Animal const &copy);
 
 		/* Getters & Setters */
 		std::string const	&getType(void) const;
 		void				setType(std::string const &type);
+		virtual Brain 		&getBrain(void) const = 0;
 
 		/* Main member functions */
-		void	makeSound(void) const;
+		virtual void	makeSound(void) const;
 };
 
 #endif

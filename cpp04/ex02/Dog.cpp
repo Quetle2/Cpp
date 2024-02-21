@@ -6,37 +6,35 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:10:33 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:48:36 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:39:10 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void): _type("Dog")
+Dog::Dog(void): Animal("Dog")
 {
-	std::cout << "Dog from Animal " << Animal::_type << " created with default constructor." << std::endl;
-}
-
-Dog::Dog(std::string const &type): Animal(type), _type("Dog")
-{
-	std::cout << "Dog from Animal " << Animal::_type << " created." << std::endl;
+	this->_brain = new Brain();
+	std::cout << "Dog created with default constructor." << std::endl;
 }
 
 Dog::Dog(Dog const &copy): Animal(copy)
 {
-	*this = copy;
-	std::cout << "Dog from Animal " << Animal::_type << " copied." << std::endl;
+	this->_brain = new Brain(*copy._brain);
+	std::cout << "Dog copied." << std::endl;
 }
 
 Dog::~Dog(void)
 {
-	std::cout << "Dog from Animal " << Animal::_type << " destroyed." << std::endl;
+	delete this->_brain;
+	std::cout << "Dog destroyed." << std::endl;
 }
 
 Dog const	&Dog::operator=(Dog const &copy)
 {
-	std::cout << "Assignment operator for Dog from Animal " << Animal::_type << " called." << std::endl;
 	Animal::operator=(copy);
+	*this->_brain = *copy._brain;
+	std::cout << "Assignment operator for Dog called." << std::endl;
 	return (*this);
 }
 
@@ -50,7 +48,17 @@ void	Dog::setType(const std::string &type)
 	this->_type = type;
 }
 
+Brain &Dog::getBrain(void) const
+{
+	return (*this->_brain);
+}
+
+void	Dog::setBrain(Brain const &brain)
+{
+	*this->_brain = brain;
+}
+
 void	Dog::makeSound(void) const
 {
-	std::cout << "Dog From Animal " << Animal::_type << " goes Bark!" << std::endl;
+	std::cout << "Dog From Animal goes Bark!" << std::endl;
 }

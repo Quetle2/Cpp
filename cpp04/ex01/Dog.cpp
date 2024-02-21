@@ -6,43 +6,59 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:10:33 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 21:41:00 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:46:08 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog( void ) : Animal( "Dog" ) {
-    std::cout << this->_type << " constructor called" << std::endl;
-    try {
-        this->_brain = new Brain();
-    }
-    catch (const std::bad_alloc& e) {
-        std::cout << "Memory Allocation is failed : " << e.what() << std::endl;
-    }
-}
-
-Dog::Dog( const Dog& src ) {
-    *this = src;
-}
-
-Dog::~Dog( void ) {
-    delete  this->_brain;
-    std::cout << this->_type << " destructor called" << std::endl;
-}
-
-void    Dog::makeSound( void ) const
+Dog::Dog(void): Animal("Dog")
 {
-    std::cout << "Woof!" << std::endl;
+	this->_brain = new Brain();
+	std::cout << "Dog created with default constructor." << std::endl;
 }
 
-Dog& Dog::operator=( const Dog& src )
+Dog::Dog(Dog const &copy): Animal(copy)
 {
-    std::cout << "<Dog.cpp:32> Dog copy called." << std::endl;
-    if (this != &src)
-    {
-        this->_type = src._type;
-        this->_brain = new Brain( *src._brain );
-    }
-    return *this;
+	this->_brain = new Brain(*copy._brain);
+	std::cout << "Dog copied." << std::endl;
+}
+
+Dog::~Dog(void)
+{
+	delete this->_brain;
+	std::cout << "Dog destroyed." << std::endl;
+}
+
+Dog const	&Dog::operator=(Dog const &copy)
+{
+	Animal::operator=(copy);
+	*this->_brain = *copy._brain;
+	std::cout << "Assignment operator for Dog called." << std::endl;
+	return (*this);
+}
+
+std::string const	&Dog::getType(void) const
+{
+	return (this->_type);
+}
+
+void	Dog::setType(const std::string &type)
+{
+	this->_type = type;
+}
+
+Brain &Dog::getBrain(void) const
+{
+	return (*this->_brain);
+}
+
+void	Dog::setBrain(Brain const &brain)
+{
+	*this->_brain = brain;
+}
+
+void	Dog::makeSound(void) const
+{
+	std::cout << "Dog From Animal goes Bark!" << std::endl;
 }

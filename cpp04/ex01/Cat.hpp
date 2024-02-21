@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:10:19 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 23:10:43 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:45:35 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,27 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat: public Animal
+{
 	private:
-		Brain   *_brain;
-
+		Brain		*_brain;
 	public:
-		Cat( void );
-		~Cat( void );
+		/* Constructors & Destructors */
+		Cat(void);
+		Cat(Cat const &copy);
+		~Cat(void);
 
-		Cat( const Cat& src );
-		Cat& operator=( const Cat& src );
+		/* Basic Operators */
+		Cat const	&operator=(Cat const &copy);
 
-		void   makeSound( void ) const;
+		/* Getters & Setters */
+		std::string const	&getType(void) const;
+		Brain 				&getBrain(void) const;
+		void				setType(std::string const &type);
+		void				setBrain(Brain const &brain);
+
+		/* Main Member Functions */
+		void	makeSound(void) const;
 };
 
 #endif

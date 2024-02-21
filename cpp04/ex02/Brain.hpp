@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:11:27 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:51:33 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 19:38:02 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/21 03:35:17 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 
-class WrongAnimal
+class Brain
 {
-	protected:
-		std::string	_type;
+	private:
+		std::string	_ideas[100];
 	public:
 		/* Constructors & Destructors */
-		WrongAnimal(void);
-		WrongAnimal(std::string const &type);
-		WrongAnimal(WrongAnimal const &copy);
-		virtual ~WrongAnimal(void);
+		Brain(void);
+		Brain(Brain const &copy);
+		~Brain(void);
 
 		/* Basic Operators */
-		WrongAnimal const	&operator=(WrongAnimal const &copy);
+		Brain const	&operator=(Brain const &copy);
 
 		/* Getters & Setters */
-		std::string const	&getType(void) const;
-		void				setType(std::string const &type);
-
-		/* Main member functions */
-		void	makeSound(void) const;
+		std::string const	&getIdea(int const &index) const;
+		void				setIdea(std::string const &idea, int const &index);
 };
-
+ 
 #endif

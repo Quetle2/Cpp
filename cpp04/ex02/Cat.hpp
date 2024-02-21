@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:11:27 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:51:33 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/18 04:10:19 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/21 03:34:44 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
-# include <iostream>
+#include "Animal.hpp"
 
-class WrongAnimal
+class Cat: public Animal
 {
-	protected:
-		std::string	_type;
+	private:
+		Brain		*_brain;
 	public:
 		/* Constructors & Destructors */
-		WrongAnimal(void);
-		WrongAnimal(std::string const &type);
-		WrongAnimal(WrongAnimal const &copy);
-		virtual ~WrongAnimal(void);
+		Cat(void);
+		Cat(Cat const &copy);
+		~Cat(void);
 
 		/* Basic Operators */
-		WrongAnimal const	&operator=(WrongAnimal const &copy);
+		Cat const	&operator=(Cat const &copy);
 
 		/* Getters & Setters */
 		std::string const	&getType(void) const;
+		Brain 				&getBrain(void) const;
 		void				setType(std::string const &type);
+		void				setBrain(Brain const &brain);
 
-		/* Main member functions */
+		/* Main Member Functions */
 		void	makeSound(void) const;
 };
 

@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:08:59 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 12:16:15 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:47:17 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,26 @@
 
 # include <iostream>
 
-class Animal{
+class Animal
+{
 	protected:
-		std::string _type;
-
+		std::string	_type;
 	public:
-		Animal( void );
-		Animal( std::string type );
-		virtual ~Animal( void );
+		/* Constructors & Destructors */
+		Animal(void);
+		Animal(std::string const &type);
+		Animal(Animal const &copy);
+		virtual ~Animal(void);
 
-		Animal( const Animal& src );
-		Animal& operator=( const Animal& rhs );
+		/* Basic Operators */
+		Animal const	&operator=(Animal const &copy);
 
-		virtual void    makeSound( void ) const;
-		std::string     getType( void ) const; 
+		/* Getters & Setters */
+		std::string const	&getType(void) const;
+		void				setType(std::string const &type);
+
+		/* Main member functions */
+		virtual void	makeSound(void) const;
 };
 
 #endif

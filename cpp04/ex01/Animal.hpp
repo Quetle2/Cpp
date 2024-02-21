@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:08:59 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 21:31:26 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:44:09 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,27 @@
 # include <iostream>
 # include "Brain.hpp"
 
-class Animal{
+class Animal
+{
 	protected:
-		std::string _type;
-
+		std::string	_type;
 	public:
-		Animal( void );
-		Animal( std::string type );
-		virtual ~Animal( void );
+		/* Constructors & Destructors */
+		Animal(void);
+		Animal(std::string const &type);
+		Animal(Animal const &copy);
+		virtual ~Animal(void);
 
-		Animal( const Animal& src );
-		Animal& operator=( const Animal& rhs );
+		/* Basic Operators */
+		Animal const	&operator=(Animal const &copy);
 
-		virtual void    makeSound( void ) const;
-		std::string     getType( void ) const; 
+		/* Getters & Setters */
+		std::string const	&getType(void) const;
+		void				setType(std::string const &type);
+		virtual Brain 		&getBrain(void) const = 0;
+
+		/* Main member functions */
+		virtual void	makeSound(void) const;
 };
 
 #endif

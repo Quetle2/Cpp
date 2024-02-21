@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/18 04:11:27 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 12:16:05 by miandrad         ###   ########.fr       */
+/*   Created: 2024/02/21 03:19:53 by miandrad          #+#    #+#             */
+/*   Updated: 2024/02/21 03:20:09 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-# include <iostream>
+# include "ClapTrap.hpp"
 
-class WrongAnimal {
-	protected:
-		std::string _type;
-
+class ScavTrap: public ClapTrap {
 	public:
-		WrongAnimal( void );
-		WrongAnimal( std::string type );
-		~WrongAnimal( void );
+		/* Constructors & Destructors */
+		ScavTrap(void);
+		ScavTrap(std::string const &name);
+		ScavTrap(ScavTrap const &copy);
+		~ScavTrap(void);
 
-		WrongAnimal( const WrongAnimal& src );
-		WrongAnimal& operator=( const WrongAnimal& rhs );
+		/* Basic Operators */
+		ScavTrap	&operator=(ScavTrap const &copy);
 
-		void            makeSound( void ) const;
-		std::string     getType( void ) const; 
+		/* Main Member Functions */
+		void	guardGate(void);
 };
 
 #endif

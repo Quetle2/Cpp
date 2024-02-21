@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 19:38:02 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/18 21:28:38 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 03:44:53 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,22 @@
 
 # include <iostream>
 
-class Brain {
+class Brain
+{
 	private:
-		std::string _ideas[100];
-
+		std::string	_ideas[100];
 	public:
-		Brain( void );
-		~Brain( void );
-		Brain( const Brain& src );
-		Brain& operator=( const Brain& rhs );
+		/* Constructors & Destructors */
+		Brain(void);
+		Brain(Brain const &copy);
+		~Brain(void);
+
+		/* Basic Operators */
+		Brain const	&operator=(Brain const &copy);
+
+		/* Getters & Setters */
+		std::string const	&getIdea(int const &index) const;
+		void				setIdea(std::string const &idea, int const &index);
 };
  
 #endif
