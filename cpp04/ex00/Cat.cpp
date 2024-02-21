@@ -6,51 +6,51 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 04:10:22 by miandrad          #+#    #+#             */
-/*   Updated: 2024/02/21 03:48:08 by miandrad         ###   ########.fr       */
+/*   Updated: 2024/02/21 18:18:57 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Animal::Animal(void): _type("undefined")
+Cat::Cat(void): _type("undefined")
 {
-	std::cout << "Animal " << this->_type << " created with default constructor." << std::endl;
+	std::cout << "Cat " << this->_type << " created with default constructor." << std::endl;
 }
 
-Animal::Animal(std::string const &type): _type(type)
+Cat::Cat(std::string const &type): _type(type)
 {
-	std::cout << "Animal " << this->_type << " created." << std::endl;
+	std::cout << "Cat " << this->_type << " created." << std::endl;
 }
 
-Animal::Animal(Animal const &copy)
+Cat::Cat(const Cat &copy): Animal()
 {
 	*this = copy;
-	std::cout << "Animal " << this->_type << " copied." << std::endl;
+	std::cout << "Cat " << this->_type << " copied." << std::endl;
 }
 
-Animal::~Animal(void)
+Cat::~Cat(void)
 {
-	std::cout << "Animal " << this->_type << " destroyed." << std::endl;
+	std::cout << "Cat " << this->_type << " destroyed." << std::endl;
 }
 
-Animal const	&Animal::operator=(Animal const &copy)
+Cat const	&Cat::operator=(Cat const &copy)
 {
-	std::cout << "Assignment operator for Animal " << this->_type << " called." << std::endl;
+	std::cout << "Assignment operator for Cat " << this->_type << " called." << std::endl;
 	this->_type = copy.getType();
 	return (*this);
 }
 
-std::string const	&Animal::getType(void) const
+std::string const	&Cat::getType(void) const
 {
 	return (this->_type);
 }
 
-void	Animal::setType(const std::string &type)
+void	Cat::setType(const std::string &type)
 {
 	this->_type = type;
 }
 
-void	Animal::makeSound(void) const
+void	Cat::makeSound(void) const
 {
-	std::cout << "Animal " << this->_type << " made a sound!" << std::endl;
+	std::cout << "Cat from Animal" << this->_type << " Mweo!" << std::endl;
 }
